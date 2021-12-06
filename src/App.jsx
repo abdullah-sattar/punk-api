@@ -1,16 +1,25 @@
 import React from "react";
 import './App.css';
+import Main from "./components/Main/Main";
+import CardList from "./components/CardList/CardList";
 import beers from "./data/beers";
 
-function App() {
+const App = () => {
+
+  const createBeerCard = () => {
+    beers.map((beer) => {
+      return <Main key={beer.id} beer={beer} />
+    })
+  };
+
   return (
     <>
       <div className="App">
-        <section>
-          <Navbar />
-        </section>
         <section className="main">
-          <Main />
+          {createBeerCard()}
+        </section>
+        <section>
+          <CardList />
         </section>
       </div>
     </>
