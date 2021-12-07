@@ -1,7 +1,6 @@
 import React from "react";
 import './App.css';
 import Main from "./components/Main/Main";
-import CardList from "./components/CardList/CardList";
 import beers from "./data/beers";
 
 const App = () => {
@@ -10,7 +9,7 @@ const App = () => {
     <>
       <div className="App">
         <section className="main">
-          <Main beers={beers} />
+          <Main  />
         </section>
         {/* <section>
           <CardList />
