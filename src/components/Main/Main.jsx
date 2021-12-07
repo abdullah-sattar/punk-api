@@ -1,16 +1,19 @@
 import React from "react";
+import "../Main/Main.scss";
 // import CardList from "../CardList/CardList";
 
 const Main = (props) => {
 
     const { beers } = props;
 
-    const getName = beers.map(beer => {
+    const createCards = beers.map(beer => {
         return <>
-        <img src={beer.image_url} alt="" />
-            <h1>{beer.name}</h1>
-            <h2>{beer.tagline}</h2>
-            <p>{beer.description}</p>
+            <div className="cards">
+                <img className="cards__img" src={beer.image_url} alt="" />
+                <h1>{beer.name}</h1>
+                <h3>{beer.tagline}</h3>
+                <p>{beer.description}</p>
+            </div>
         </>
     })
 
@@ -29,8 +32,8 @@ const Main = (props) => {
 
     return (
         <>
-            <div>
-                {getName}
+            <div className="container">
+                {createCards}
             </div>
         </>
     )

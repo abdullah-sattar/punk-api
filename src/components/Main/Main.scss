@@ -1,0 +1,13 @@
+.cards {
+    border: 2px solid black;
+
+    &__img {
+        width: 100px;
+        height: 300px;
+    }
+}
+
+.container {
+    border: 2px solid black;
+    display: flex;
+}
