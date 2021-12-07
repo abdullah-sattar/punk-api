@@ -1,7 +1,7 @@
 const beers = [
     {
         "id": 1,
-        name: "Buzz",
+        "name": "Buzz",
         "tagline": "A Real Bitter Experience.",
         "first_brewed": "09/2007",
         "description": "A light, crisp and bitter IPA brewed with English and American hops. A small batch brewed only once.",

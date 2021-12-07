@@ -6,21 +6,15 @@ import beers from "./data/beers";
 
 const App = () => {
 
-  const createBeerCard = () => {
-    beers.map((beer) => {
-      return <Main key={beer.id} beer={beer} />
-    })
-  };
-
   return (
     <>
       <div className="App">
         <section className="main">
-          {createBeerCard()}
+          <Main beers={beers} />
         </section>
-        <section>
+        {/* <section>
           <CardList />
-        </section>
+        </section> */}
       </div>
     </>
   );
