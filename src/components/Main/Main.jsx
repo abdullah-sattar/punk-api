@@ -1,14 +1,25 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import "../Main/Main.scss";
 import Card from "../Card/Card";
-import beers from "../../data/beers";
 // import CardList from "../CardList/CardList";
 
 const Main = () => {
 
     // const { beers } = props;
 
-    const createCards = beers.map(beer => {
+    const [beersArr, setBeersArr] = useState([]);
+
+    useEffect(() => {
+        const URL = "https://api.punkapi.com/v2/beers"
+        fetch(URL)
+        .then(response => response.json())
+        .then(beer => {
+            setBeersArr(beer);
+        })
+        
+    }, [])
+
+    const beerCardJSX = beersArr.map(beer => {
         return <>
             <div key={beer.id} className="cards">
                 <Card  img={beer.image_url} name={beer.name} tagline={beer.tagline} />
@@ -37,7 +48,7 @@ const Main = () => {
     return (
         <>
             <div className="container">
-                {createCards}
+                {beerCardJSX}
             </div>
         </>
     )
