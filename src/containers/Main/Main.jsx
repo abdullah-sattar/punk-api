@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
-import "../Main/Main.scss";
-import Card from "../Card/Card";
+import "./Main.scss";
+import Card from "../../components/Card/Card";
 // import CardList from "../CardList/CardList";
 
 const Main = () => {

@@ -1,6 +1,6 @@
 import React from "react";
 import './App.css';
-import Main from "./components/Main/Main";
+import Main from "./containers/Main/Main";
 import beers from "./data/beers";
 
 const App = () => {
@@ -11,9 +11,9 @@ const App = () => {
         <section className="main">
           <Main  />
         </section>
-        {/* <section>
-          <CardList />
-        </section> */}
+        <section>
+          {/* <NavBar /> */}
+        </section>
       </div>
     </>
   );
