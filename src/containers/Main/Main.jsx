@@ -1,49 +1,41 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import "./Main.scss";
 import Card from "../../components/Card/Card";
 // import CardList from "../CardList/CardList";
 
-const Main = () => {
+const Main = (props) => {
 
-    // const { beers } = props;
+    const { searchTerm } = props;
 
     const [beersArr, setBeersArr] = useState([]);
 
     useEffect(() => {
         const URL = "https://api.punkapi.com/v2/beers"
         fetch(URL)
-        .then(response => response.json())
-        .then(beer => {
-            setBeersArr(beer);
-        })
-        
+            .then(response => response.json())
+            .then(beer => {
+                console.log(beer)
+                setBeersArr(beer);
+            })
+
     }, [])
 
-    const beerCardJSX = beersArr.map(beer => {
+    const filteredBeers = beersArr.filter(beer => {
+        const beerName = beer.name.toLowerCase();
+        console.log("searchTerm =", searchTerm)
+        console.log("Beer name includes=", beerName.includes(searchTerm))
+        return beerName.includes(searchTerm)
+    })
+
+    const beerCardJSX = filteredBeers.map((beer, index) => {
         return <>
-            <div key={beer.id} className="cards">
-                <Card  img={beer.image_url} name={beer.name} tagline={beer.tagline} />
-            </div>
+            <Card key={"beer" + index} img={beer.image_url} name={beer.name} tagline={beer.tagline} />
         </>
     })
 
-    {/* <img className="cards__img" src={beer.image_url} alt="" />
-                <h1>{beer.name}</h1>
-                <h3>{beer.tagline}</h3>
-                <p>{beer.description}</p> */}
+    console.log(filteredBeers);
 
-    // const getImg = beers.map(beer => {
-    //     return beer.image_url
-    // })
-
-    // const getTagLine = beers.map(beer => {
-    //     return beer.tagline
-    // })
-
-    // const getDescription = beers.map(beer => {
-    //     return beer.description
-    // })
-
+    console.log(beerCardJSX);
 
     return (
         <>
