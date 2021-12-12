@@ -1,11 +1,12 @@
 import React from "react";
+import "./Filter.scss"
 
 const Filter = (props) => {
 
     const {checkedAbv, checkedDate, checkedPh, handleDateClick, handleAbvClick, handlePhClick} = props;
 
     return (
-        <div>
+        <div className="filter">
             <label htmlFor="abv">High ABV (> 6%)</label>
             <input type="checkbox" name="highAbv" id="abv" checked={checkedAbv} onClick={handleAbvClick} />
             <label htmlFor="date">Classic Range</label>

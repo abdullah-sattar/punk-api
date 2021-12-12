@@ -7,7 +7,7 @@ const Navbar = (props) => {
   const { handleInput, searchTerm, handleAbvClick, checkedAbv, handleDateClick, checkedDate, handlePhClick, checkedPh } = props;
 
   return (
-    <div>
+    <div className="nav">
       <SearchBox searchTerm={searchTerm} handleInput={handleInput} />
       <Filter checkedAbv={checkedAbv} checkedDate={checkedDate} checkedPh={checkedPh} handleAbvClick={handleAbvClick} handleDateClick={handleDateClick} handlePhClick={handlePhClick}  />
     </div>

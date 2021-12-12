@@ -101,7 +101,8 @@ const Main = (props) => {
 
   return (
     <>
-      <div className="container">{displayCards()}</div>
+      {/* <div className="container">{displayCards()}</div> */}
+      {displayCards()}
     </>
   );
 };

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import './App.css';
+import './App.scss';
 import Main from "./containers/Main/Main";
 import beers from "./data/beers";
 import Navbar from "./containers/Navbar/Navbar";
@@ -72,11 +72,11 @@ const App = () => {
   return (
     <>
       <div className="App">
+        <section className="navbar">
+          <Navbar searchTerm={searchTerm} handleInput={handleInput} handleAbvClick={handleAbvClick} handleDateClick={handleDateClick} handlePhClick={handlePhClick} checkedAbv={checkedAbv} checkedDate={checkedDate} checkedPh={checkedPh} />
+        </section>
         <section key={beers.id} className="main">
           <Main searchTerm={searchTerm} beerAbv={beerAbv} beerDate={beerDate} checkedAbv={checkedAbv} checkedDate={checkedDate} checkedPh={checkedPh} />
-        </section>
-        <section>
-          <Navbar searchTerm={searchTerm} handleInput={handleInput} handleAbvClick={handleAbvClick} handleDateClick={handleDateClick} handlePhClick={handlePhClick} checkedAbv={checkedAbv} checkedDate={checkedDate} checkedPh={checkedPh} />
         </section>
       </div>
     </>
