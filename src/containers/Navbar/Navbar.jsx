@@ -1,14 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./NavBar.scss";
 import SearchBox from "../../components/SearchBox/SearchBox";
+import Filter from "../../components/Filter/Filter";
 
 const Navbar = (props) => {
+  const { handleInput, searchTerm, handleAbvClick, checkedAbv, handleDateClick, checkedDate } = props;
 
-    const {handleInput, searchTerm} = props;
-
-    return <SearchBox searchTerm={searchTerm} handleInput={handleInput} />
-
-}
+  return (
+    <div>
+      <SearchBox searchTerm={searchTerm} handleInput={handleInput} />
+      <Filter checkedAbv={checkedAbv} checkedDate={checkedDate} handleAbvClick={handleAbvClick} handleDateClick={handleDateClick}  />
+    </div>
+  );
+};
 
 export default Navbar;
-
