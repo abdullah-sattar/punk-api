@@ -12,6 +12,8 @@ const App = () => {
   const [beerAbv, setBeerAbv] = useState([]);
   const [checkedDate, setCheckedDate] = useState(false);
   const [beerDate, setBeerDate] = useState([]);
+  const [checkedPh, setCheckedPh] = useState(false);
+
 
 
   useEffect(() => {
@@ -61,15 +63,20 @@ const App = () => {
     console.log(event)
     setCheckedDate(event.target.checked)
   }
+  
+  const handlePhClick = (event) => {
+    console.log(event)
+    setCheckedPh(event.target.checked)
+  }
 
   return (
     <>
       <div className="App">
         <section key={beers.id} className="main">
-          <Main searchTerm={searchTerm} beerAbv={beerAbv} beerDate={beerDate} checkedAbv={checkedAbv} checkedDate={checkedDate} />
+          <Main searchTerm={searchTerm} beerAbv={beerAbv} beerDate={beerDate} checkedAbv={checkedAbv} checkedDate={checkedDate} checkedPh={checkedPh} />
         </section>
         <section>
-          <Navbar searchTerm={searchTerm} handleInput={handleInput} handleAbvClick={handleAbvClick} handleDateClick={handleDateClick} checkedAbv={checkedAbv} checkedDate={checkedDate} />
+          <Navbar searchTerm={searchTerm} handleInput={handleInput} handleAbvClick={handleAbvClick} handleDateClick={handleDateClick} handlePhClick={handlePhClick} checkedAbv={checkedAbv} checkedDate={checkedDate} checkedPh={checkedPh} />
         </section>
       </div>
     </>

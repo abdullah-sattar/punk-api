@@ -4,7 +4,7 @@ import Card from "../../components/Card/Card";
 // import CardList from "../CardList/CardList";
 
 const Main = (props) => {
-  const { searchTerm, beerAbv, beerDate, checkedAbv, checkedDate } = props;
+  const { searchTerm, beerAbv, beerDate, checkedAbv, checkedDate, checkedPh } = props;
 
   const [beersArr, setBeersArr] = useState([]);
 
@@ -25,6 +25,10 @@ const Main = (props) => {
     return beerName.includes(searchTerm);
   });
 
+  const filteredPhBeers = beersArr.filter((beer) => {
+    return beer.ph < 4;
+  });
+
   const beerAbvJSX = beerAbv.map((beer, index) => {
     return (
       <>
@@ -38,20 +42,33 @@ const Main = (props) => {
     );
   });
 
-    const beerDateJSX = beerDate.map((beer) => {
-      return (
-        <>
-          <Card
-            key={beer.id}
-            img={beer.image_url}
-            name={beer.name}
-            tagline={beer.tagline}
-          />
-        </>
-      );
-    });
+  const beerDateJSX = beerDate.map((beer) => {
+    return (
+      <>
+        <Card
+          key={beer.id}
+          img={beer.image_url}
+          name={beer.name}
+          tagline={beer.tagline}
+        />
+      </>
+    );
+  });
 
   const beerCardJSX = filteredBeers.map((beer, index) => {
+    return (
+      <>
+        <Card
+          key={"beer" + index}
+          img={beer.image_url}
+          name={beer.name}
+          tagline={beer.tagline}
+        />
+      </>
+    );
+  });
+
+  const beerPhJSX = filteredPhBeers.map((beer, index) => {
     return (
       <>
         <Card
@@ -69,6 +86,8 @@ const Main = (props) => {
       return beerAbvJSX;
     } else if (checkedDate) {
       return beerDateJSX;
+    } else if (checkedPh) {
+      return beerPhJSX;
     } else {
       return beerCardJSX;
     }
