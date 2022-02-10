@@ -73,7 +73,7 @@ const App = () => {
     <>
       <div className="App">
         <section className="navbar">
-          <Navbar searchTerm={searchTerm} handleInput={handleInput} handleAbvClick={handleAbvClick} handleDateClick={handleDateClick} handlePhClick={handlePhClick} checkedAbv={checkedAbv} checkedDate={checkedDate} checkedPh={checkedPh} />
+          <Navbar searchTerm={searchTerm} handleInput={handleInput} handleAbvClick={handleAbvClick} handleDateClick={handleDateClick} handlePhClick={handlePhClick} />
         </section>
         <section key={beers.id} className="main">
           <Main searchTerm={searchTerm} beerAbv={beerAbv} beerDate={beerDate} checkedAbv={checkedAbv} checkedDate={checkedDate} checkedPh={checkedPh} />
@@ -84,3 +84,5 @@ const App = () => {
 }
 
 export default App;
+
+// checkedAbv={checkedAbv} checkedDate={checkedDate} checkedPh={checkedPh}
